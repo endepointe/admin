@@ -30,12 +30,11 @@ export default async (req, res) => {
                   res.status(500).send('Issue with registration');
                 });
             }
+          })
+          .catch((error) => {
+            console.log(error);
           });
-      })
+      });
     });
   };
-
-  if (req.method === 'GET') {
-    //
-  }
 }

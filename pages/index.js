@@ -1,5 +1,5 @@
 import AuthForm from '../components/Auth/AuthForm';
-import AdminHome from '../components/AdminHome';
+import AdminHome from './admin';
 import React,
 {
   useState
@@ -24,8 +24,12 @@ export default function Home() {
         <title>Admin</title>
       </Head>
       {!login ?
-        <AuthForm login={login} user={admin.msg} /> :
-        <AdminHome login={login} user={admin.msg} />}
+        <AuthForm
+          handleLogin={handleLogin}
+          login={login} user={admin.msg} /> :
+        <AdminHome
+          handleLogin={handleLogin}
+          login={login} user={admin.msg} />}
     </div>
   )
 }

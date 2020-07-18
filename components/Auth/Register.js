@@ -26,7 +26,7 @@ const Register = (props) => {
           if (res.data.status === 1) {
             console.log(res.data);
             props.handleLogin(res.data);
-            Router.push('/home');
+            Router.push('/admin');
           }
           if (res.data.status === 0) {
             console.log(res.data.msg);
@@ -47,6 +47,7 @@ const Register = (props) => {
       <input
         name="email"
         required
+        readOnly
         type="email"
         // value while testing
         // value="test@test.com"
@@ -59,6 +60,7 @@ const Register = (props) => {
       <input
         name="password"
         required
+        readOnly
         type="password"
         // value while testing
         value="1bs2b3bd1"
@@ -67,6 +69,7 @@ const Register = (props) => {
       <input
         name="verify_password"
         required
+        readOnly
         type="password"
         // value while testing
         value="1bs2b3bd1"

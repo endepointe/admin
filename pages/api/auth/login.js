@@ -1,9 +1,8 @@
 const db = require('../../../db/pgp');
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
 export default async (req, res) => {
-  if (res.method === "POST") {
+  if (req.method === "POST") {
     console.log(req.body);
     const { email, password } = req.body;
     const key = email.concat('', password);
@@ -40,5 +39,8 @@ export default async (req, res) => {
           });
         }
       })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }

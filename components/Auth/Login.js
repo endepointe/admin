@@ -21,7 +21,7 @@ const Login = (props) => {
           console.log(res.data);
           props.handleLogin(res.data)
           // render home page
-          Router.push('/home');
+          Router.push('/admin');
         }
         if (res.data.status === 0) {
           console.log(res.data.msg);
@@ -40,6 +40,7 @@ const Login = (props) => {
       onSubmit={handleSubmit}>
       <input
         name="email"
+        readOnly
         autoFocus
         required
         type="email"
@@ -54,6 +55,7 @@ const Login = (props) => {
       ></input>
       <input
         name="password"
+        readOnly
         required
         // value while testing
         value="1bs2b3bd1"
