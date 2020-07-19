@@ -1,4 +1,4 @@
-const db = require('../../../db/pgp');
+const { db } = require('../../../db/pgp');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 

@@ -23,13 +23,9 @@ export default function Home() {
       <Head>
         <title>Admin</title>
       </Head>
-      {!login ?
-        <AuthForm
-          handleLogin={handleLogin}
-          login={login} user={admin.msg} /> :
-        <AdminHome
-          handleLogin={handleLogin}
-          login={login} user={admin.msg} />}
+      <AuthForm
+        handleLogin={handleLogin}
+        login={login} user={admin.msg} />
     </div>
   )
 }

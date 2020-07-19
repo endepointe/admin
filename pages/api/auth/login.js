@@ -1,9 +1,8 @@
-const db = require('../../../db/pgp');
+const { db } = require('../../../db/pgp');
 const bcrypt = require('bcrypt');
 
 export default async (req, res) => {
   if (req.method === "POST") {
-    console.log(req.body);
     const { email, password } = req.body;
     const key = email.concat('', password);
     db.oneOrNone('SELECT email, password FROM users WHERE email = $1', `${email}`)
@@ -16,7 +15,7 @@ export default async (req, res) => {
               }
               if (result) {
                 let at = email.indexOf('@');
-                console.log(email.slice(0, at));
+                // console.log(email.slice(0, at));
                 res.status(200).send({
                   status: 1,
                   msg: email.slice(0, at)
@@ -32,7 +31,7 @@ export default async (req, res) => {
             }
           });
         } else {
-          console.log(response)
+          // console.log(response)
           res.status(200).send({
             status: 0,
             msg: 'Account not found, try again.'
