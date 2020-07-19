@@ -47,8 +47,8 @@ const Login = (props) => {
         // value while testing
         // value="test@tst.com"
         // value="does@not.exist"
-        // value="test@test.com"
-        value="endepointe@gmail.com"
+        value="test@test.com"
+        // value="endepointe@gmail.com"
         // value="ende@ende.com"
         // value="ende@test.com"
         placeholder="Email"

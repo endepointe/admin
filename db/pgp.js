@@ -3,15 +3,15 @@ const pgp = require('pg-promise')({
   //   const cp = client.connectionParameters;
   //   console.log('Connected to database:', cp.database);
   // },
-  disconnect(client, dc) {
-    const cp = client.connectionParameters;
-    console.log('Disconnecting from database:', cp.database);
-  },
-  error(err, e) {
-    if (e.cn) {
-      console.log(err);
-    }
-  }
+  // disconnect(client, dc) {
+  //   const cp = client.connectionParameters;
+  //   console.log('Disconnecting from database:', cp.database);
+  // },
+  // error(err, e) {
+  //   if (e.cn) {
+  //     console.log(err);
+  //   }
+  // }
 });
 
 const cn = {

@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Router from 'next/router';
 import {
   useEffect,
   useState
 } from 'react';
+import Table from '../components/Table';
 import { db } from '../db/pgp';
 import axios from 'axios';
 
@@ -31,8 +33,17 @@ const Home = ({ tableNames }) => {
         tablename: name
       }
     })
-      .then(data => console.log(data))
+      .then(res => {
+        console.log(res.data);
+        for (let i = 0; i < res.data.length; ++i) {
+
+        }
+      })
       .catch(err => console.log(err));
+  }
+
+  const logout = () => {
+    Router.push('/');
   }
 
   return (
@@ -40,7 +51,9 @@ const Home = ({ tableNames }) => {
       <nav>
         <ul>
           <li>
-            <Link href="/"><a>logout</a></Link>
+            <button
+              onClick={logout}
+              type="button">logout</button>
           </li>
           <li>
             <Link href="/"><a>Settings</a></Link>
@@ -49,20 +62,17 @@ const Home = ({ tableNames }) => {
       </nav>
       <main>
         <aside>
-          <h4>Database Contents</h4>
+          <h4>Side Menu</h4>
           <ul>
-            {tables.map((table, key) =>
-              <li key={key}>
-                <button
-                  name={table}
-                  type="button"
-                  onClick={showTable}>{table}</button>
-              </li>)}
+            <li>menu item</li>
+            <li>menu item</li>
           </ul>
         </aside>
-        <div>
-
-        </div>
+        {tables.map((table, key) =>
+          <section key={key}>
+            <Table table={table} />
+          </section>
+        )}
       </main>
     </div>
   )
@@ -71,6 +81,8 @@ const Home = ({ tableNames }) => {
 export async function getStaticProps() {
 
   let tableNames = await db.manyOrNone("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';");
+
+  console.log(tableNames[1].tablename);
 
   return {
     props: {

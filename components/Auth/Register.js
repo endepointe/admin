@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const Register = (props) => {
 
-
   const [reg_error, setRegError] = useState(false);
 
   const handleSubmit = (e) => {
@@ -50,9 +49,9 @@ const Register = (props) => {
         readOnly
         type="email"
         // value while testing
-        // value="test@test.com"
+        value="test@test.com"
         // value="endepointe@gmail.com"
-        value="newuser@g.com"
+        // value="newuser@g.com"
         // value="ende@ende.com"
         // value="1@1.com"
         // value="ende@test.com"
