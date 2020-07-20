@@ -82,8 +82,6 @@ export async function getStaticProps() {
 
   let tableNames = await db.manyOrNone("SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';");
 
-  console.log(tableNames[1].tablename);
-
   return {
     props: {
       tableNames
