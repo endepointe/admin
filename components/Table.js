@@ -13,16 +13,17 @@ const Table = (props) => {
     }).then(response => {
       setColumnNames(response.data);
       // console.log(Object.entries(columns));
-      console.log(columnNames)
     }).catch(error => console.log(error));
   }, [])
+
+  console.log(columnNames);
 
   return (
     <div>
       <h3>{props.table}</h3>
       <div>
         {Object.keys(columnNames).map((col, key) =>
-          <div key={key}>{col}</div>
+          <div key={key}>{col}{key}</div>
         )}
       </div>
     </div>

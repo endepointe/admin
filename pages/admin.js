@@ -22,26 +22,6 @@ const Home = ({ tableNames }) => {
     t = null;
   }, []);
 
-  const showTable = (e) => {
-    console.log(e.target.name);
-    populateContent(e.target.name);
-  }
-
-  const populateContent = (name) => {
-    axios.get('/api/db/get-td', {
-      params: {
-        tablename: name
-      }
-    })
-      .then(res => {
-        console.log(res.data);
-        for (let i = 0; i < res.data.length; ++i) {
-
-        }
-      })
-      .catch(err => console.log(err));
-  }
-
   const logout = () => {
     Router.push('/');
   }

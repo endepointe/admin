@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 export default async (req, res) => {
+
   if (req.method === 'POST') {
 
     const { email, password } = req.body;
